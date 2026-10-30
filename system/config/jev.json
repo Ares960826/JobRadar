@@ -1,0 +1,14 @@
+{
+  "provider": "typesafe",
+  "model": "jev-1.13.0",
+  "credential_file": "~/.config/jobradar/jev.env",
+  "timeout_ms": 20000,
+  "max_requests": 10,
+  "max_request_bytes": 100000,
+  "max_questions": 24,
+  "browser_min_confidence": 0.8,
+  "browser_max_steps": 8,
+  "browser_max_ms": 90000,
+  "browser_cdp_endpoint": "http://127.0.0.1:19222",
+  "mode": "explicit_test_only"
+}

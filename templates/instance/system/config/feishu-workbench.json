@@ -1,0 +1,22 @@
+{
+  "base_token": "<your-feishu-base-token>",
+  "title": "<工作台名称>",
+  "tables": {
+    "candidates": "<table-id-candidates>",
+    "postdoc_mentors": "<table-id-postdoc_mentors>",
+    "institutions": "<table-id-institutions>",
+    "application_tracking": "<table-id-application_tracking>",
+    "quotas": "<table-id-quotas>",
+    "group_comparison": "<table-id-group_comparison>"
+  },
+  "views": {
+    "candidate_overview": "<view-id-candidate_overview>",
+    "ready_for_human_decision": "<view-id-ready_for_human_decision>",
+    "tracking_records": "<view-id-tracking_records>",
+    "tracking_followup": "<view-id-tracking_followup>",
+    "tracking_calendar": "<view-id-tracking_calendar>",
+    "group_comparison": "<view-id-group_comparison>"
+  },
+  "auto_sync_enabled": false,
+  "human_submission_required": true
+}

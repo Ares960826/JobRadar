@@ -1,0 +1,12 @@
+outputs/
+__pycache__/
+system/runtime/
+*.env
+*.env.*
+system/state/active-run.json
+system/state/skill-radar.lock/
+
+system/state/stage1-operation.lock/
+system/validation/*/privacy/
+system/validation/*/tmp/
+.DS_Store

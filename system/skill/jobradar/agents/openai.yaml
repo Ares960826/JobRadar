@@ -1,0 +1,4 @@
+interface:
+  display_name: "JobRadar 岗位雷达"
+  short_description: "官网与结构化合集驱动的大陆、国际岗位搜索及第一轮硬条件初筛"
+  default_prompt: "使用 $jobradar 优先搜索官方岗位及结构化合集并交叉核查，分别记录大陆与国际覆盖，执行硬条件初筛并记录初筛结果。"

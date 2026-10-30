@@ -1,0 +1,18 @@
+{
+  "name": "feishu-campus-aggregate",
+  "priority": 2,
+  "url": "<feishu-base-url>",
+  "base_token": "<base-token>",
+  "table_id": "<table-id>",
+  "view_id": "<view-id>",
+  "fields": [
+    "<field-id>"
+  ],
+  "search_fields": [
+    "<field-id>"
+  ],
+  "limit": 20,
+  "cache_minutes": 15,
+  "read_only": true,
+  "region": "mainland"
+}

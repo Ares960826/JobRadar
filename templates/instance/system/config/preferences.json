@@ -1,0 +1,51 @@
+{
+  "version": "1",
+  "hard_constraint_source": "Profile/hard-conditions.md",
+  "hard_constraint_sha256": "2979f209f6a78a9dece0064ff045c8127bd544c6db52d827eee8bcc1db112fca",
+  "hard_constraint_reviewed_at": "2026-10-29",
+  "note": "hard_rules 把硬条件文档写成机器规则；文档一改，screen 就拒绝运行，直到 hard_rules 复核更新并写入新的 hard_constraint_sha256。以下数值都是示例。",
+  "postdoc_prep_days": 20,
+  "hard_rules": {
+    "version": "example-v1",
+    "mainland_salary": {
+      "absolute_floor_cny": 120000,
+      "review_below_cny": 180000,
+      "location_floors": [
+        {
+          "fact": "beijing_only",
+          "label": "北京",
+          "floor_cny": 180000,
+          "review_below_cny": 250000,
+          "exception": "beijing_salary_exception",
+          "code": "SALARY_BEIJING"
+        }
+      ]
+    },
+    "mainland_benefits": {
+      "exception_min_annual_cny": 800000
+    },
+    "international_net_savings": {
+      "monthly_floor_cny": 8000
+    },
+    "review_notes": [
+      {
+        "fact": "northeast_only",
+        "note": "东北通常不考虑；有特殊机会价值时保留，交人工复核"
+      }
+    ],
+    "conditional_rejections": [
+      {
+        "fact": "sustained_intensity",
+        "code": "INTENSITY",
+        "reason": "明确长期高强度，默认不接受",
+        "exception": "exceptional_opportunity"
+      }
+    ],
+    "deferred_checks": [
+      {
+        "fact": "frequent_travel",
+        "note": "高频出差/驻场的比例与可协商性，留待第二轮"
+      }
+    ]
+  }
+}

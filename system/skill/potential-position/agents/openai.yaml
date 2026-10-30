@@ -1,0 +1,4 @@
+interface:
+  display_name: "PotentialPosition"
+  short_description: "依据硬条件与职业画像择优评级候选岗位，核实直达入口并交付飞书表"
+  default_prompt: "使用 $potential-position 对指定候选执行第二轮筛选，保留可能申请的岗位并按匹配评级，核实入口与日期，更新现有表格。"
