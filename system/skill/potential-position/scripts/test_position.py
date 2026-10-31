@@ -61,7 +61,7 @@ class ValidateTests(unittest.TestCase):
     def test_decision_ready_needs_closed_gaps_and_quota(self):
         ready = dict(GOOD, 核查状态=['可供本人决策'], 核查缺口='薪资口径待核')
         self.assertIn('decision_ready', rules(snapshot(ready)))
-        ready = dict(GOOD, 核查状态=['可供本人决策'], 限额组='ICBC-2027', 限额处理='本人当届余额未知')
+        ready = dict(GOOD, 核查状态=['可供本人决策'], 限额组='GROUPA-2027', 限额处理='本人当届余额未知')
         self.assertIn('decision_ready', rules(snapshot(ready)))
         ready = dict(GOOD, 核查状态=['可供本人决策'], 限额处理='未核到：集团公告未写投递数量')
         self.assertIn('decision_ready', rules(snapshot(ready)))
@@ -309,18 +309,18 @@ class GateTests(unittest.TestCase):
         self.assertIn('permanent_id', rules(snapshot(dict(GOOD, 机会编号='12'))))
 
     def test_accepted_unknown_allows_decision_ready(self):
-        ready = dict(GOOD, 核查状态=['可供本人决策'], 核查缺口='本人已接受：薪资口径未公开', 限额组='ICBC', 限额处理='本人已接受：余额未知')
+        ready = dict(GOOD, 核查状态=['可供本人决策'], 核查缺口='本人已接受：薪资口径未公开', 限额组='GROUPA', 限额处理='本人已接受：余额未知')
         self.assertTrue(pos.validate(snapshot(ready))['passed'])
 
 
 class MaintenanceFindingTests(unittest.TestCase):
     def test_quota_group_without_rule_row_is_warned(self):
-        snap = snapshot(dict(GOOD, 限额组='CCB-2027校园招聘'))
-        snap['tables']['quotas'] = {'fields': [{'name': '限额组'}], 'views': [], 'records': [{'record_id': 'q1', '限额组': 'ICBC-2027校园招聘'}]}
+        snap = snapshot(dict(GOOD, 限额组='GROUPB-2027校园招聘'))
+        snap['tables']['quotas'] = {'fields': [{'name': '限额组'}], 'views': [], 'records': [{'record_id': 'q1', '限额组': 'GROUPA-2027校园招聘'}]}
         result = pos.validate(snap)
         self.assertTrue(result['passed'])
         self.assertIn('quota_table', {f['rule'] for f in result['findings']})
-        snap['tables']['quotas']['records'].append({'record_id': 'q2', '限额组': 'CCB-2027校园招聘'})
+        snap['tables']['quotas']['records'].append({'record_id': 'q2', '限额组': 'GROUPB-2027校园招聘'})
         self.assertNotIn('quota_table', {f['rule'] for f in pos.validate(snap)['findings']})
 
     def test_workbench_duplicates_are_warned_not_blocking(self):
